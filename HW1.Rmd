@@ -1,0 +1,31 @@
+---
+title: "Homework 1"
+output: html_document
+---
+
+Next week: install and load a package, set up your working directory, load a dataset and look for some help on the application of a given function
+
+
+
+
+
+```{r}
+install.packages("datasets")
+library(datasets)
+data("iris")
+summary(iris)
+```
+
+```{r}
+getwd()
+```
+
+```{r}
+setwd("C:/Users/Mariana Reyes/Documents/Rclass/Rclass Github")
+```
+
+
+```{r}
+?subset
+help(subset)
+```
