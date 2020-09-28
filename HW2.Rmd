@@ -1,0 +1,44 @@
+---
+title: "Homework2"
+output: html_document
+---
+Challenge: the data set rairuoho provides growth data for 8 days in different treatments. Reformat the table in order to have the day as a variable with 6 levels together with another variable called length. You may use another famous package for data manipulation tidyr and the function gather(). Current variables are given as:
+
+
+- day3 to day8: mean length of the grass at the given day
+
+- germinate: no. of germinated seeds
+
+- bed: where the grass was growing, 4 levels: thin (mould1), thick (mould2) mould, thin (paper4) and thick (paper8) paper
+
+- treatement: watering scheme, 2 levels: either pure water or water with nutrients
+
+- spatial1: vertical location of the plot
+
+- spatial2: horizontal location of the plot
+
+extra variable row and column can be removed
+
+```{r}
+library(tidyr)
+rairuoho<-read.table("C:/Users/Mariana Reyes/Documents/Rclass/GitAndR/rairuoho.txt",header=T, sep="\t", dec=".")
+head(rairuoho)
+
+```
+
+
+
+```{r}
+
+colnames(rairuoho) <- c('3','4','5','6','7','8','Germinate','Bed','Treatment','Spatial 1', 'Spatial 2', 'row', 'column')
+rairuoho
+
+```
+
+```{r}
+rairuoho <- subset(rairuoho, select = -c (row,column))
+
+rairuoho1 <- gather(rairuoho, "Days", "Length", 1:6)
+
+rairuoho1
+```
